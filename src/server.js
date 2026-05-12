@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    methods: ["GET", "POST", "PATCH", "Delete"],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
     origin: "*",
 }),
 );
