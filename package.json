@@ -38,13 +38,3 @@
     "prettier": "^3.8.3"
   }
 }
-"dependencies": {
-  "express": "...",
-  "mongoose": "...",
-  "cors": "...",
-  "dotenv": "...",
-  "pino-http": "...",
-  "pino-pretty": "...",
-  "http-errors": "...",
-  "helmet": "..."
-}
