@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { celebrate, Segments } from "celebrate";
+import { celebrate } from "celebrate";
 import {
   getAllNotes,
   getNoteById,
@@ -22,11 +22,5 @@ router.post("/notes", celebrate(createNoteSchema), createNote);
 router.delete("/notes/:noteId", celebrate (noteIdSchema), deleteNote);
 router.patch(
   "/notes/:noteId",
-  celebrate({
-  [Segments.PARAMS]: noteIdSchema[Segments.PARAMS],
-  [Segments.BODY]: updateNoteSchema[Segments.BODY],
-}),
- updateNote
-);
-
+  celebrate(updateNoteSchema), updateNote);
 export default router;

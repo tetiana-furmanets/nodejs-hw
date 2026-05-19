@@ -37,4 +37,7 @@ export const updateNoteSchema = {
   content: Joi.string().allow(""),
   tag: Joi.string().valid(...TAGS).optional(),
 }). min(1),
+  [Segments.PARAMS]: Joi.object({
+    noteId: Joi.string().custom(objectValidator).required(),
+  }),
 };
