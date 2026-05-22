@@ -18,21 +18,21 @@ export const setSessionCookies = (res, session) => {
 httpOnly: true,
 secure: true,
 sameSite: 'none',
-maxAge: 15 * 60 * 1000,
+maxAge: FIFTEEN_MINUTES,
   });
 
   res.cookie("refreshToken",session.refreshToken, {
 httpOnly: true,
 secure: true,
 sameSite: 'none',
-maxAge: 24 * 60 * 60 * 1000,
+maxAge: ONE_DAY,
   });
 
   res.cookie("sessionId",session._id, {
 httpOnly: true,
 secure: true,
 sameSite: 'none',
-maxAge: 24 * 60 * 60 * 1000,
+maxAge: ONE_DAY,
   });
 
 };

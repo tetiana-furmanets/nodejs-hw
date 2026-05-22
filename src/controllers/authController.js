@@ -54,7 +54,7 @@ if(req.cookies.sessionId){
   res.status(204).send();
 };
 
-export const refreshSession = async (reg, res) => {
+export const refreshUserSession = async (req, res) => {
   const { sessionId, refreshToken } = req.cookies;
   if(!sessionId || !refreshToken) {
     throw createHttpError(401, "Invalid session");
