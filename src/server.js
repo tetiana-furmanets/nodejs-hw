@@ -3,11 +3,13 @@ import cors from "cors";
 import helmet from "helmet";
 import "dotenv/config";
 import { errors } from "celebrate";
+import cookieParser from 'cookie-parser'
 import { connectMongoDB } from "./db/connectMongoDB.js";
 import { logger } from "./middleware/logger.js";
 import { notFoundHandler } from "./middleware/notFoundHandler.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import notesRoutes from "./routes/notesRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 const app = express();
 
@@ -23,7 +25,10 @@ app.use( helmet ());
 app.use(express.json());
 app.use(logger);
 
+app.use(cookieParser());
+
 app.use(notesRoutes);
+app.use(authRoutes);
 
 app.use(notFoundHandler);
 
