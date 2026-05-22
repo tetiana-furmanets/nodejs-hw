@@ -26,12 +26,10 @@ const filter = {
     ];
   }
 
-const totalNotes = await Note.countDocuments(filter);
-
-  const notes = await Note.find(filter)
-    .skip(skip)
-    .limit(limit)
-    .lean();
+const [totalNotes, notes] = await Promise.all([
+  Note.countDocuments(filter),
+  Note.find(filter).skip(skip).limit(limit).lean(),
+]);
 
   const totalPages = Math.ceil(totalNotes / limit);
 
