@@ -60,14 +60,15 @@ res.status(200).json(user);
 
 
 export const logoutUser = async (req, res) => {
-if(req.cookies.sessionId){
-  await Session.deleteOne({_id: req.cookies.sessionId});
+  if (req.cookies.sessionId) {
+    await Session.deleteOne({ _id: req.cookies.sessionId });
+  }
+
   res.clearCookie('accessToken');
   res.clearCookie('refreshToken');
   res.clearCookie('sessionId');
-}
 
-  res.status(204).send();
+  return res.status(204).send();
 };
 
 export const refreshUserSession = async (req, res) => {
