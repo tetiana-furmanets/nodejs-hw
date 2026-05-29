@@ -24,7 +24,7 @@ export const saveFileToCloudinary = async (buffer, userId, callback) => {
 
 
   return new Promise((resolve,reject) => {
-  const uploadStream = cloudinary.uploader.upload_stream({}, (error, result) => {
+  const uploadStream = cloudinary.uploader.upload_stream(options, (error, result) => {
     if (error) {
       return reject(error);
     }
