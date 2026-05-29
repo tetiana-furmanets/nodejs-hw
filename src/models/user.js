@@ -15,6 +15,11 @@ password: {
   type: String,
   required: true,
 },
+avatar:{
+  type: String,
+  default: "https://ac.goit.global/fullstack/react/default-awatar.jpg",
+},
+
 },
 { timestamps: true }
 );
